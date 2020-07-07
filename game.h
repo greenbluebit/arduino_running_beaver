@@ -97,9 +97,9 @@ namespace game {
     switch(currentGameState) {
       case Game_State::stopped :
         lcd.clear();
-        lcd.setCursor(0, 0);
-        lcd.write("Press button to ");
-        lcd.setCursor(1, 6);
+        lcd.setCursor(0, 1);
+        lcd.write("RUNNING BEAVER");
+        lcd.setCursor(1, 5);
         lcd.write("start!");
       break;
       case Game_State::running :
@@ -148,6 +148,21 @@ namespace game {
       case Game_State::over :
         gameStarted = false;
         score = 0;
+        last_score_time = 0;
+        lastTimeObstacleSpawn = 0;
+        chanceModifier = 0;
+        obstacleIndex = 0;
+        
+        (*bottomObstacleOne).rendering = false;
+        (*bottomObstacleTwo).rendering = false;
+        (*bottomObstacleThree).rendering = false;
+        (*bottomObstacleFour).rendering = false;
+
+        (*topObstacleOne).rendering = false;
+        (*topObstacleTwo).rendering = false;
+        (*topObstacleThree).rendering = false;
+        (*topObstacleFour).rendering = false;
+        
         lcd.clear();
         lcd.setCursor(0,0);
         lcd.write("Score: " + score);
