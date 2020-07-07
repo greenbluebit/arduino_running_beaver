@@ -10,7 +10,3 @@ void setup() {
 void loop() {
   game::LoopGame();
 }
-
-void handle_input() {
-  
-}

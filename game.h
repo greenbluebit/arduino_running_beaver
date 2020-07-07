@@ -112,6 +112,7 @@ namespace game {
           if(current_time - lastTimeObstacleSpawn > NEW_GAME_OBSTACLE_SPAWN_INTERVAL) {
             (*obstacles[obstacleIndex]).Reset();
             obstacleIndex = obstacleIndex >= 16 ? 0 : obstacleIndex + 1;
+            lastTimeObstacleSpawn = current_time;
           }
         }
         if(current_time - lastTimeObstacleSpawn > OBSTACLE_SPAWN_INTERVAL) {
@@ -122,7 +123,7 @@ namespace game {
           } else {
             chanceModifier = chanceModifier < MAX_CHANCE_MODIFIER ? chanceModifier + 1 : MAX_CHANCE_MODIFIER;
           }
-          
+          lastTimeObstacleSpawn = current_time;
         }
         
         // obstacle render logic
@@ -135,9 +136,18 @@ namespace game {
         (*topObstacleTwo).Render();
         (*topObstacleThree).Render();
         (*topObstacleFour).Render();
+
+        if(current_time - last_score_time > SCORING_INTERVAL) {
+          last_score_time = current_time;
+          score += 1;
+          if(score > MAX_SCORE) {
+            score = MAX_SCORE;
+          }
+        }
       break;
       case Game_State::over :
         gameStarted = false;
+        score = 0;
         lcd.clear();
         lcd.setCursor(0,0);
         lcd.write("Score: " + score);

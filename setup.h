@@ -76,7 +76,11 @@ byte obstacleTop[8] = {
   const int obstacleTopIndex = 3;
   const int obstacleBottomIndex = 4;
 
+  // 999999999
   int score = 0;
+  unsigned long SCORING_INTERVAL = 1000;
+  unsigned long last_score_time = 0;
+  int MAX_SCORE = 999999999;
   
   enum class Game_State
   {
