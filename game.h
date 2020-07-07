@@ -113,9 +113,11 @@ namespace game {
             (*obstacles[obstacleIndex]).Reset();
             obstacleIndex = obstacleIndex >= 16 ? 0 : obstacleIndex + 1;
             lastTimeObstacleSpawn = current_time;
+            gameStarted = true;
+            (*player).rendering = true;
           }
         }
-        if(current_time - lastTimeObstacleSpawn > OBSTACLE_SPAWN_INTERVAL) {
+        if(gameStarted == true && current_time - lastTimeObstacleSpawn > OBSTACLE_SPAWN_INTERVAL) {
           if(random(0, 100) < OBSTACLE_SPAWN_CHANCE + chanceModifier) {
             (*obstacles[obstacleIndex]).Reset();
             obstacleIndex = obstacleIndex >= 16 ? 0 : obstacleIndex + 1;
