@@ -9,16 +9,15 @@ namespace game {
                                             // PIN, PRESS, HOLD, RELEASE
   inputs::Button* btnOne = new inputs::Button(BTN_PIN_ONE,
   [&player]() { // PRESS
-    player->Jump(); 
-  }, 
-  [&player]() { // HOLD
-    //Serial.println("HOLD"); 
-  }, 
-  [&player, &currentGameState]() { // RELEASE
-    player->Fall(); 
+    player->Jump();
     if(currentGameState == Game_State::stopped || currentGameState == Game_State::over) {
       currentGameState = Game_State::running;
     }
+  }, 
+  [&player]() { // HOLD
+  }, 
+  [&player, &currentGameState]() { // RELEASE
+    player->Fall(); 
   }
   );
 
@@ -35,18 +34,16 @@ namespace game {
 
   elements::Obstacle* obstacles[] = {
     bottomObstacleOne,
+    topObstacleOne,
     bottomObstacleTwo,
+    topObstacleTwo,
     bottomObstacleThree,
     bottomObstacleFour,
-    topObstacleOne,
-    topObstacleTwo,
     topObstacleThree,
     topObstacleFour
   };
   int obstacleIndex = 0;
   unsigned long lastTimeObstacleSpawn = 0;
-  unsigned long OBSTACLE_SPAWN_INTERVAL = 600;
-  unsigned long NEW_GAME_OBSTACLE_SPAWN_INTERVAL = 1000;
   int OBSTACLE_SPAWN_CHANCE = 50; // from 0 to 100
   int chanceModifier = 0;
   int MAX_CHANCE_MODIFIER = 500;
@@ -88,6 +85,20 @@ namespace game {
       last_render_time = current_time;
       RenderLogic();
     }
+
+    
+    if(currentGameState == Game_State::running && current_time - last_obstacle_movement_time > (OBSTACLE_MOVEMENT_INTERVAL * obstacle_movement_multiplier)) {// ALL INPUT HERE
+      last_obstacle_movement_time = current_time;
+      (*bottomObstacleOne).Move();
+      (*bottomObstacleTwo).Move();
+      (*bottomObstacleThree).Move();
+      (*bottomObstacleFour).Move();
+
+      (*topObstacleOne).Move();
+      (*topObstacleTwo).Move();
+      (*topObstacleThree).Move();
+      (*topObstacleFour).Move();
+    }
     
   }
 
@@ -97,10 +108,11 @@ namespace game {
     switch(currentGameState) {
       case Game_State::stopped :
         lcd.clear();
-        lcd.setCursor(0, 1);
+        lcd.setCursor(1, 0);
         lcd.write("RUNNING BEAVER");
-        lcd.setCursor(1, 5);
+        lcd.setCursor(5, 1);
         lcd.write("start!");
+        
       break;
       case Game_State::running :
         lcd.clear();
@@ -109,23 +121,40 @@ namespace game {
     
         // obstacle spawn logic
         if(gameStarted == false) {
-          if(current_time - lastTimeObstacleSpawn > NEW_GAME_OBSTACLE_SPAWN_INTERVAL) {
-            (*obstacles[obstacleIndex]).Reset();
-            obstacleIndex = obstacleIndex >= 16 ? 0 : obstacleIndex + 1;
-            lastTimeObstacleSpawn = current_time;
-            gameStarted = true;
-            (*player).rendering = true;
-          }
+          gameStarted = true;
+          (*player).rendering = true;
+          score = 0;
+          obstacle_movement_multiplier = 1;
+          last_multiplier_change = current_time;
+          // if(current_time - lastTimeObstacleSpawn > NEW_GAME_OBSTACLE_SPAWN_INTERVAL) {
+          //   if((*obstacles[obstacleIndex]).rendering == false) {
+          //     (*obstacles[obstacleIndex]).Reset();
+          //   }
+            
+          //   obstacleIndex = obstacleIndex >= 8 ? 0 : obstacleIndex + 1;
+          //   lastTimeObstacleSpawn = current_time;
+          //   gameStarted = true;
+          //   (*player).rendering = true;
+          // }
         }
-        if(gameStarted == true && current_time - lastTimeObstacleSpawn > OBSTACLE_SPAWN_INTERVAL) {
+        if(gameStarted == true && current_time - lastTimeObstacleSpawn > (OBSTACLE_SPAWN_INTERVAL * obstacle_movement_multiplier)) {
           if(random(0, 100) < OBSTACLE_SPAWN_CHANCE + chanceModifier) {
-            (*obstacles[obstacleIndex]).Reset();
-            obstacleIndex = obstacleIndex >= 16 ? 0 : obstacleIndex + 1;
+            
+            if((*obstacles[obstacleIndex]).rendering == false) {
+              (*obstacles[obstacleIndex]).Reset();
+              lastTimeObstacleSpawn = current_time;
+            }
+            obstacleIndex = obstacleIndex >= 8 ? 0 : obstacleIndex + 1;
             chanceModifier = 0;
           } else {
-            chanceModifier = chanceModifier < MAX_CHANCE_MODIFIER ? chanceModifier + 1 : MAX_CHANCE_MODIFIER;
+            chanceModifier = chanceModifier < MAX_CHANCE_MODIFIER ? chanceModifier + 20 : MAX_CHANCE_MODIFIER;
+            obstacleIndex = obstacleIndex >= 8 ? 0 : obstacleIndex + 1;
           }
-          lastTimeObstacleSpawn = current_time;
+          // lastTimeObstacleSpawn = current_time;
+        }
+        if(current_time - last_multiplier_change > MULTIPLIER_CHANGE_INTERVAL && obstacle_movement_multiplier > OBSTACLE_MAX_MOVEMENT_MULTIPLER) {
+          obstacle_movement_multiplier = obstacle_movement_multiplier - OBSTACLE_MOVEMENT_MULTIPLIER_CHANGER;
+          last_multiplier_change = current_time;
         }
         
         // obstacle render logic
@@ -149,7 +178,7 @@ namespace game {
       break;
       case Game_State::over :
         gameStarted = false;
-        score = 0;
+        
         last_score_time = 0;
         lastTimeObstacleSpawn = 0;
         chanceModifier = 0;
@@ -166,9 +195,12 @@ namespace game {
         (*topObstacleFour).rendering = false;
         
         lcd.clear();
+        // setCursor(x, y)
         lcd.setCursor(0,0);
-        lcd.write("Score: " + score);
-        lcd.setCursor(1,3);
+        lcd.write("Score: ");
+        lcd.setCursor(7, 0);
+        lcd.write(String(score).c_str());
+        lcd.setCursor(3,1);
         lcd.write("Try again?");
       break;
     }

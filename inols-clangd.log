@@ -1,0 +1,496 @@
+
+
+
+
+
+
+
+Started logging.
+
+>>>
+Content-Length: 2162
+
+{"method":"initialize","params":{"processId":1992,"rootPath":"C:\\Users\\green\\AppData\\Local\\Temp\\arduino-language-server643265327\\sketch","rootUri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch","clientInfo":{"name":"vscode","version":"1.50.0"},"trace":"off","initializationOptions":{},"capabilities":{"workspace":{"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"]},"applyEdit":true,"symbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"executeCommand":{"dynamicRegistration":true},"didChangeWatchedFiles":{"dynamicRegistration":true},"workspaceFolders":true,"configuration":true},"textDocument":{"declaration":{"linkSupport":true},"definition":{"linkSupport":true},"implementation":{"linkSupport":true,"dynamicRegistration":true},"typeDefinition":{"linkSupport":true},"synchronization":{"willSave":true,"didSave":true,"willSaveWaitUntil":true},"documentSymbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]},"hierarchicalDocumentSymbolSupport":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"codeAction":{"dynamicRegistration":true,"isPreferredSupport":true,"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}}},"completion":{"completionItem":{"documentationFormat":["markdown","plaintext"],"snippetSupport":true},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},"contextSupport":true},"signatureHelp":{"signatureInformation":{"parameterInformation":{"labelOffsetSupport":true}}},"documentLink":{"dynamicRegistration":true,"tooltipSupport":true},"hover":{"contentFormat":["markdown","plaintext"]},"foldingRange":{"dynamicRegistration":true,"rangeLimit":5000,"lineFoldingOnly":true},"colorProvider":{"dynamicRegistration":true}},"window":{"workDoneProgress":true}}},"id":0,"jsonrpc":"2.0"}
+<<<
+Content-Length: 1671
+
+{"id":0,"jsonrpc":"2.0","result":{"capabilities":{"astProvider":true,"callHierarchyProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","refactor","info"]},"compilationDatabase":{"automaticReload":true},"completionProvider":{"allCommitCharacters":[" ","\t","(",")","[","]","{","}","<",">",":",";",",","+","-","/","*","%","^","&","#","?",".","=","\"","'","|"],"resolveProvider":false,"triggerCharacters":[".","<",">",":","\"","/"]},"declarationProvider":true,"definitionProvider":true,"documentFormattingProvider":true,"documentHighlightProvider":true,"documentLinkProvider":{"resolveProvider":false},"documentOnTypeFormattingProvider":{"firstTriggerCharacter":"\n","moreTriggerCharacter":[]},"documentRangeFormattingProvider":true,"documentSymbolProvider":true,"executeCommandProvider":{"commands":["clangd.applyFix","clangd.applyTweak"]},"hoverProvider":true,"implementationProvider":true,"memoryUsageProvider":true,"referencesProvider":true,"renameProvider":{"prepareProvider":true},"selectionRangeProvider":true,"semanticTokensProvider":{"full":{"delta":true},"legend":{"tokenModifiers":[],"tokenTypes":["variable","variable","parameter","function","method","function","property","variable","class","enum","enumMember","type","dependent","dependent","namespace","typeParameter","concept","type","macro","comment"]},"range":false},"signatureHelpProvider":{"triggerCharacters":["(",","]},"textDocumentSync":{"change":2,"openClose":true,"save":true},"typeHierarchyProvider":true,"workspaceSymbolProvider":true},"serverInfo":{"name":"clangd","version":"clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)"}}}
+>>>
+Content-Length: 52
+
+{"method":"initialized","params":{},"jsonrpc":"2.0"}Content-Length: 751
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/00_main.ino.cpp","languageId":"cpp","version":1,"text":"#include \u003cArduino.h\u003e\n#line 1 \"D:\\\\Projects\\\\arduino_beaver\\\\00_main\\\\00_main.ino\"\n#include \"setup.h\"\n#include \"elements.h\"\n#include \"inputs.h\"\n#include \"game.h\"\n\n#line 6 \"D:\\\\Projects\\\\arduino_beaver\\\\00_main\\\\00_main.ino\"\nvoid setup();\n#line 10 \"D:\\\\Projects\\\\arduino_beaver\\\\00_main\\\\00_main.ino\"\nvoid loop();\n#line 6 \"D:\\\\Projects\\\\arduino_beaver\\\\00_main\\\\00_main.ino\"\nvoid setup() {\n  game::SetupGame();\n}\n\nvoid loop() {\n  game::LoopGame();\n}\n\n"}},"jsonrpc":"2.0"}Content-Length: 197
+
+{"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/00_main.ino.cpp"}},"id":1,"jsonrpc":"2.0"}Content-Length: 4035
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/elements.h","languageId":"cpp","version":1,"text":"#pragma once\r\n\r\n\r\nnamespace elements {\r\n\r\n  struct Element {\r\n    int posX, posY;\r\n    int size;\r\n    bool rendering = false;\r\n\r\n    Element(int startPosX, int startPosY, int startSize) {\r\n        posX = startPosX;\r\n        posY = startPosY;\r\n        size = startSize;\r\n    }\r\n\r\n    Element() {\r\n        Element(0,0,1);\r\n    }\r\n\r\n    void Move(int x, int y) {\r\n        posX = x;\r\n        posY = y;\r\n    }\r\n\r\n    void Render();\r\n  };\r\n  \r\n  enum class Player_State\r\n  {\r\n      standing,\r\n      running,\r\n      dead\r\n  };\r\n\r\n  struct Player : Element {\r\n      Player_State playerState;\r\n      bool runAnim = false; // On false, it uses first sprite, on true second\r\n      \r\n      Player(Player_State startPlayerState) : Element(0, 1, 2){\r\n          playerState = startPlayerState;\r\n          \r\n      }\r\n  \r\n      void Render() {\r\n        if(rendering == true) {\r\n          lcd.setCursor(posX, posY);\r\n          lcd.write((byte)tailIndex);\r\n          lcd.setCursor(posX + 1, posY);\r\n          lcd.write((byte)(runAnim == true ? runOneIndex : runTwoIndex));\r\n          runAnim = !runAnim;\r\n        }\r\n      }\r\n  \r\n      void Jump() {\r\n        Serial.println(\"JUMP\");\r\n        posY = 0;\r\n      }\r\n\r\n      void Fall() {\r\n        posY = 1;\r\n      }\r\n  \r\n      void Die() {\r\n        Serial.println(\"DIE\");\r\n      }\r\n  };\r\n\r\n  struct Obstacle : Element {\r\n        //byte sprite[8];\r\n        bool canMove = false;\r\n        bool movesLeft = true; // Don't support moving right yet, due to collision detection\r\n        Player* currentPlayer;\r\n        int obstacleType = 0; // 0 == bottom ; 1 == top\r\n\r\n        Obstacle(int startPosX, int startPosY, int startSize, Player* startPlayer) : Element(startPosX, startPosY, startSize) {\r\n          //int spriteLength = sizeof(startSprite) / sizeof(startSprite[0]);\r\n          //for(int i = 0; i \u003c spriteLength; i++) {\r\n          //  sprite[i] = startSprite[i];\r\n          //}\r\n          currentPlayer = startPlayer;\r\n        }\r\n\r\n        Obstacle(int startPosX, int startPosY, int startSize, Player* startPlayer, bool startCanMove, bool startMovesLeft, int startObstacleType){\r\n          Obstacle(startPosX, startPosY, startSize, startPlayer);\r\n          canMove = startCanMove;\r\n          movesLeft = startMovesLeft;\r\n          obstacleType = startObstacleType;\r\n        }\r\n\r\n        void Render() {\r\n          if(rendering == true ) {\r\n            lcd.setCursor(posX, posY);\r\n            lcd.write((byte) (obstacleType == 0 ? obstacleBottomIndex : obstacleTopIndex));\r\n          }\r\n        }\r\n\r\n        void Reset() {\r\n          posX = movesLeft == true ? 16 : 0;\r\n          rendering = true;\r\n        }\r\n\r\n        void Move() {\r\n          if(currentGameState == Game_State::running \u0026\u0026 rendering == true) {\r\n            if(canMove == true) {\r\n              bool hitPlayer = false;\r\n              int newX = posX;\r\n              if(movesLeft == true) {\r\n                newX -= 1;\r\n                if(newX \u003c 0) {\r\n                  rendering = false;\r\n                }\r\n              } else {\r\n                newX += 1;\r\n                if(newX \u003e 16) {\r\n                  rendering = false;\r\n                }\r\n              } // end check move right\r\n              if(newX \u003c= ((*currentPlayer).posX + (*currentPlayer).size)) {\r\n                hitPlayer = true;\r\n                currentGameState = Game_State::over;\r\n              } else {\r\n                posX = newX;\r\n              }\r\n            } // end check can move\r\n          } // end check game is running\r\n        }\r\n    };\r\n}\r\n"}},"jsonrpc":"2.0"}
+<<<
+Content-Length: 111
+
+{"id":0,"jsonrpc":"2.0","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+>>>
+Content-Length: 38
+
+{"id":0,"result":null,"jsonrpc":"2.0"}
+<<<
+Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","percentage":0,"title":"indexing"}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}
+>>>
+Content-Length: 6633
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/game.h","languageId":"cpp","version":1,"text":"#pragma once\r\n\r\n\r\nnamespace game {\r\n  unsigned long current_time = 0;\r\n\r\n  elements::Player* player = new elements::Player(elements::Player_State::standing);\r\n\r\n                                            // PIN, PRESS, HOLD, RELEASE\r\n  inputs::Button* btnOne = new inputs::Button(BTN_PIN_ONE,\r\n  [\u0026player]() { // PRESS\r\n    player-\u003eJump(); \r\n  }, \r\n  [\u0026player]() { // HOLD\r\n    //Serial.println(\"HOLD\"); \r\n  }, \r\n  [\u0026player, \u0026currentGameState]() { // RELEASE\r\n    player-\u003eFall(); \r\n    if(currentGameState == Game_State::stopped || currentGameState == Game_State::over) {\r\n      currentGameState = Game_State::running;\r\n    }\r\n  }\r\n  );\r\n\r\n  //                                                 Obstacle(int startPosX, int startPosY, int startSize, Player* startPlayer, bool startCanMove, bool startMovesLeft, int startObstacleType){\r\n  elements::Obstacle* bottomObstacleOne = new elements::Obstacle(16,1,1, player,true, true, 0);\r\n  elements::Obstacle* bottomObstacleTwo = new elements::Obstacle(16,1,1, player,true, true, 0);\r\n  elements::Obstacle* bottomObstacleThree = new elements::Obstacle(16,1,1, player,true, true, 0);\r\n  elements::Obstacle* bottomObstacleFour = new elements::Obstacle(16,1,1, player,true, true, 0);\r\n\r\n  elements::Obstacle* topObstacleOne = new elements::Obstacle(16,0,1, player,true, true, 1);\r\n  elements::Obstacle* topObstacleTwo = new elements::Obstacle(16,0,1, player,true, true, 1);\r\n  elements::Obstacle* topObstacleThree = new elements::Obstacle(16,0,1, player,true, true, 1);\r\n  elements::Obstacle* topObstacleFour = new elements::Obstacle(16,0,1, player,true, true, 1);\r\n\r\n  elements::Obstacle* obstacles[] = {\r\n    bottomObstacleOne,\r\n    bottomObstacleTwo,\r\n    bottomObstacleThree,\r\n    bottomObstacleFour,\r\n    topObstacleOne,\r\n    topObstacleTwo,\r\n    topObstacleThree,\r\n    topObstacleFour\r\n  };\r\n  int obstacleIndex = 0;\r\n  unsigned long lastTimeObstacleSpawn = 0;\r\n  unsigned long OBSTACLE_SPAWN_INTERVAL = 600;\r\n  unsigned long NEW_GAME_OBSTACLE_SPAWN_INTERVAL = 1000;\r\n  int OBSTACLE_SPAWN_CHANCE = 50; // from 0 to 100\r\n  int chanceModifier = 0;\r\n  int MAX_CHANCE_MODIFIER = 500;\r\n  \r\n  bool gameStarted = false;\r\n  // PROTOTYPES\r\n  void RenderLogic();\r\n  \r\n  void SetupGame() {\r\n    Serial.begin(9600);\r\n    lcd.begin(16, 2);\r\n    \r\n    // TODO Try to skip index 0 and start from 1, might be faster, no idea why\r\n    lcd.createChar(tailIndex, \u0026sprite[0]);\r\n    lcd.createChar(runOneIndex, \u0026sprite[8]);\r\n    lcd.createChar(runTwoIndex, \u0026sprite[16]);\r\n    lcd.createChar(obstacleTopIndex, obstacleTop);\r\n    lcd.createChar(obstacleBottomIndex, obstacleBottom);\r\n  }\r\n\r\n  void StartGame() {\r\n    Serial.println(\"StartGame\");\r\n  }\r\n\r\n  void HandleInput() {\r\n    \r\n  }\r\n  \r\n//Score: 999999999    16 chars\r\n//Try again?          10 chars\r\n  void LoopGame() {\r\n    current_time = millis();\r\n\r\n    if(current_time - last_logic_time \u003e LOGIC_INTERVAL) {// ALL INPUT HERE\r\n      last_logic_time = current_time;\r\n      (*btnOne).Check();\r\n    }\r\n    if(current_time - last_render_time \u003e RENDER_INTERVAL) {// ALL RENDER\r\n      last_render_time = current_time;\r\n      RenderLogic();\r\n    }\r\n    \r\n  }\r\n\r\n  void RenderLogic() {\r\n    // HANDLE BUTTON CHANGE STATES\r\n    (*btnOne).OnRender();\r\n    switch(currentGameState) {\r\n      case Game_State::stopped :\r\n        lcd.clear();\r\n        lcd.setCursor(0, 1);\r\n        lcd.write(\"RUNNING BEAVER\");\r\n        lcd.setCursor(1, 5);\r\n        lcd.write(\"start!\");\r\n      break;\r\n      case Game_State::running :\r\n        lcd.clear();\r\n        // PUT ALL RENDER CALLS HERE        \r\n        (*player).Render();\r\n    \r\n        // obstacle spawn logic\r\n        if(gameStarted == false) {\r\n          if(current_time - lastTimeObstacleSpawn \u003e NEW_GAME_OBSTACLE_SPAWN_INTERVAL) {\r\n            (*obstacles[obstacleIndex]).Reset();\r\n            obstacleIndex = obstacleIndex \u003e= 16 ? 0 : obstacleIndex + 1;\r\n            lastTimeObstacleSpawn = current_time;\r\n            gameStarted = true;\r\n            (*player).rendering = true;\r\n          }\r\n        }\r\n        if(gameStarted == true \u0026\u0026 current_time - lastTimeObstacleSpawn \u003e OBSTACLE_SPAWN_INTERVAL) {\r\n          if(random(0, 100) \u003c OBSTACLE_SPAWN_CHANCE + chanceModifier) {\r\n            (*obstacles[obstacleIndex]).Reset();\r\n            obstacleIndex = obstacleIndex \u003e= 16 ? 0 : obstacleIndex + 1;\r\n            chanceModifier = 0;\r\n          } else {\r\n            chanceModifier = chanceModifier \u003c MAX_CHANCE_MODIFIER ? chanceModifier + 1 : MAX_CHANCE_MODIFIER;\r\n          }\r\n          lastTimeObstacleSpawn = current_time;\r\n        }\r\n        \r\n        // obstacle render logic\r\n        (*bottomObstacleOne).Render();\r\n        (*bottomObstacleTwo).Render();\r\n        (*bottomObstacleThree).Render();\r\n        (*bottomObstacleFour).Render();\r\n\r\n        (*topObstacleOne).Render();\r\n        (*topObstacleTwo).Render();\r\n        (*topObstacleThree).Render();\r\n        (*topObstacleFour).Render();\r\n\r\n        if(current_time - last_score_time \u003e SCORING_INTERVAL) {\r\n          last_score_time = current_time;\r\n          score += 1;\r\n          if(score \u003e MAX_SCORE) {\r\n            score = MAX_SCORE;\r\n          }\r\n        }\r\n      break;\r\n      case Game_State::over :\r\n        gameStarted = false;\r\n        score = 0;\r\n        last_score_time = 0;\r\n        lastTimeObstacleSpawn = 0;\r\n        chanceModifier = 0;\r\n        obstacleIndex = 0;\r\n        \r\n        (*bottomObstacleOne).rendering = false;\r\n        (*bottomObstacleTwo).rendering = false;\r\n        (*bottomObstacleThree).rendering = false;\r\n        (*bottomObstacleFour).rendering = false;\r\n\r\n        (*topObstacleOne).rendering = false;\r\n        (*topObstacleTwo).rendering = false;\r\n        (*topObstacleThree).rendering = false;\r\n        (*topObstacleFour).rendering = false;\r\n        \r\n        lcd.clear();\r\n        lcd.setCursor(0,0);\r\n        lcd.write(\"Score: \" + score);\r\n        lcd.setCursor(1,3);\r\n        lcd.write(\"Try again?\");\r\n      break;\r\n    }\r\n  }\r\n}\r\n"}},"jsonrpc":"2.0"}Content-Length: 2922
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/inputs.h","languageId":"cpp","version":1,"text":"#pragma once\r\n\r\ntypedef void (*func_type)(void);\r\n\r\nnamespace inputs {\r\n  struct Button {\r\n        int pin = 0;\r\n        // pressed is used because I want the fps of the render to not be insanely fast, but locked to a set number\r\n        // that is because if it was as fast as the CPU goes, first of all it would render faster than we can see, unless I use delays\r\n        // and secondly, it could also be open to random slow downs or break everything else due to those delays.\r\n        // As such, we have two logic timelines, one that happens at 60FPS(FOR NOW) for the render, and another, which happens almost at CPU speed\r\n        // for the input.\r\n        // Once input is sent however, say u pressed the button, if you released it before the render loop occured, the player would have never jumped\r\n        // so, once you press, I save it as a boolean, and I don't clear it until used in the render loop.\r\n        bool pressed = false;\r\n        bool held = false;\r\n        bool released = false;\r\n        //func_type functions[256];\r\n        //void (*func)(void);\r\n        func_type pressFunc;\r\n        func_type holdFunc;\r\n        func_type releaseFunc;\r\n        \r\n        Button(int startPin, func_type startPressFunc, func_type startHoldFund, func_type startReleaseFunc) {\r\n            pin = startPin;\r\n            pressFunc = startPressFunc;\r\n            holdFunc = startHoldFund;\r\n            releaseFunc = startReleaseFunc;\r\n            //memcpy(functions, startFunctions, sizeof(startFunctions));\r\n        }\r\n\r\n        void Check() {\r\n          if(digitalRead(pin) == HIGH) {\r\n            if(held == false) {\r\n              if(pressed == false) {\r\n                pressed = true;\r\n              }\r\n              held = true;\r\n            }\r\n          } else {\r\n            if(held == true) {\r\n              held = false;\r\n              released=  true;\r\n            }\r\n          }\r\n        }\r\n\r\n        void OnRender() {\r\n          Press();\r\n          Hold();\r\n          Release();\r\n        }\r\n\r\n        void Press() {\r\n          if(pressed == true) {\r\n            Serial.println(\"PRESS\");\r\n            pressed = false;\r\n            pressFunc();\r\n            //for(int i = 0; i \u003c 256; i++) {\r\n            //  functions[i]();\r\n            //}\r\n          }\r\n        }\r\n\r\n        void Hold() {\r\n          if(held == true) {\r\n            holdFunc();\r\n          }\r\n        }\r\n\r\n        void Release() {\r\n          if(released == true) {\r\n            releaseFunc();\r\n            released = false;\r\n          }\r\n        }\r\n  };\r\n}\r\n"}},"jsonrpc":"2.0"}Content-Length: 1929
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/setup.h","languageId":"cpp","version":1,"text":"#pragma once\r\n#include \u003cSoftwareSerial.h\u003e\r\n#include \u003cLiquidCrystal.h\u003e\r\n#define byte uint8_t\r\n\r\n// TIMING\r\n\r\nunsigned long RENDER_INTERVAL = 16.6;\r\nunsigned long LOGIC_INTERVAL = 2;\r\n\r\nunsigned long last_render_time = 0;\r\nunsigned long last_logic_time = 0;\r\n\r\n// PINS\r\nint BTN_PIN_ONE = 1;\r\n\r\nint isRunning = 0;\r\n\r\nLiquidCrystal lcd(8, 9, 4, 5, 6, 7);\r\n\r\nbyte obstacleTop[8] = {\r\n    0b11111,\r\n    0b01111,\r\n    0b00110,\r\n    0b00110,\r\n    0b00111,\r\n    0b01111,\r\n    0b11110,\r\n    0b00000\r\n  };\r\n  \r\n  byte obstacleBottom[8] = {\r\n    0b00000,\r\n    0b11110,\r\n    0b01111,\r\n    0b00111,\r\n    0b00110,\r\n    0b00110,\r\n    0b01111,\r\n    0b11111\r\n  };\r\n\r\n  byte sprite[24] = {\r\n    // TAIL\r\n    0b00000,\r\n    0b00100,\r\n    0b00110,\r\n    0b00111,\r\n    0b00011,\r\n    0b00001,\r\n    0b00000,\r\n    0b00000,\r\n    // RUN ONE\r\n    0b11111,\r\n    0b11011,\r\n    0b11111,\r\n    0b11100,\r\n    0b11110,\r\n    0b11100,\r\n    0b10000,\r\n    0b10000,\r\n    // RUN TWO\r\n    0b11111,\r\n    0b11011,\r\n    0b11111,\r\n    0b11100,\r\n    0b11110,\r\n    0b11100,\r\n    0b00100,\r\n    0b00100\r\n  };\r\n\r\n  const int tailIndex = 0;\r\n  const int runOneIndex = 1;\r\n  const int runTwoIndex = 2;\r\n  const int obstacleTopIndex = 3;\r\n  const int obstacleBottomIndex = 4;\r\n\r\n  // 999999999\r\n  int score = 0;\r\n  unsigned long SCORING_INTERVAL = 1000;\r\n  unsigned long last_score_time = 0;\r\n  int MAX_SCORE = 999999999;\r\n  \r\n  enum class Game_State\r\n  {\r\n      stopped,\r\n      running,\r\n      over\r\n  };\r\n  \r\n  Game_State currentGameState = Game_State::stopped;\r\n"}},"jsonrpc":"2.0"}Content-Length: 296
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/00_main.ino.cpp"},"range":{"start":{"line":2,"character":0},"end":{"line":2,"character":0}},"context":{"diagnostics":[]}},"id":2,"jsonrpc":"2.0"}
+<<<
+Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/29","percentage":3.4482758620689653}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/29","percentage":3.4482758620689653}}}Content-Length: 3970
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":6},"start":{"character":2,"line":6}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":41,"line":6},"start":{"character":33,"line":6}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'inputs'","range":{"end":{"character":8,"line":9},"start":{"character":2,"line":9}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'inputs'","range":{"end":{"character":37,"line":9},"start":{"character":31,"line":9}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":25},"start":{"character":2,"line":25}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":54,"line":25},"start":{"character":46,"line":25}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":26},"start":{"character":2,"line":26}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":54,"line":26},"start":{"character":46,"line":26}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":27},"start":{"character":2,"line":27}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":56,"line":27},"start":{"character":48,"line":27}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":28},"start":{"character":2,"line":28}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":55,"line":28},"start":{"character":47,"line":28}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":30},"start":{"character":2,"line":30}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":51,"line":30},"start":{"character":43,"line":30}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":31},"start":{"character":2,"line":31}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":51,"line":31},"start":{"character":43,"line":31}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":32},"start":{"character":2,"line":32}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":53,"line":32},"start":{"character":45,"line":32}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":33},"start":{"character":2,"line":33}},"severity":1,"source":"clang"},{"code":"fatal_too_many_errors","message":"Too many errors emitted, stopping now","range":{"end":{"character":0,"line":0},"start":{"character":0,"line":0}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/game.h","version":1}}Content-Length: 3815
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":13,"line":46},"start":{"character":10,"line":46}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":13,"line":47},"start":{"character":10,"line":47}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'byte'","range":{"end":{"character":25,"line":47},"start":{"character":21,"line":47}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":13,"line":48},"start":{"character":10,"line":48}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":13,"line":49},"start":{"character":10,"line":49}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'byte'","range":{"end":{"character":25,"line":49},"start":{"character":21,"line":49}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'runOneIndex'","range":{"end":{"character":56,"line":49},"start":{"character":45,"line":49}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'runTwoIndex'","range":{"end":{"character":70,"line":49},"start":{"character":59,"line":49}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Serial'","range":{"end":{"character":14,"line":55},"start":{"character":8,"line":55}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Serial'","range":{"end":{"character":14,"line":64},"start":{"character":8,"line":64}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":15,"line":92},"start":{"character":12,"line":92}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":15,"line":93},"start":{"character":12,"line":93}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'byte'","range":{"end":{"character":27,"line":93},"start":{"character":23,"line":93}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'obstacleBottomIndex'","range":{"end":{"character":69,"line":93},"start":{"character":50,"line":93}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'obstacleTopIndex'","range":{"end":{"character":88,"line":93},"start":{"character":72,"line":93}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'currentGameState'","range":{"end":{"character":29,"line":103},"start":{"character":13,"line":103}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Game_State'","range":{"end":{"character":43,"line":103},"start":{"character":33,"line":103}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'currentGameState'","range":{"end":{"character":32,"line":120},"start":{"character":16,"line":120}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Game_State'","range":{"end":{"character":45,"line":120},"start":{"character":35,"line":120}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/elements.h","version":1}}Content-Length: 765
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'digitalRead'","range":{"end":{"character":24,"line":32},"start":{"character":13,"line":32}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'HIGH'","range":{"end":{"character":37,"line":32},"start":{"character":33,"line":32}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Serial'","range":{"end":{"character":18,"line":55},"start":{"character":12,"line":55}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/inputs.h","version":1}}Content-Length: 4351
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"misc-definitions-in-headers","message":"Variable 'RENDER_INTERVAL' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":29,"line":7},"start":{"character":14,"line":7}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'LOGIC_INTERVAL' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":28,"line":8},"start":{"character":14,"line":8}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'last_render_time' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":30,"line":10},"start":{"character":14,"line":10}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'last_logic_time' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":29,"line":11},"start":{"character":14,"line":11}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'BTN_PIN_ONE' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":15,"line":14},"start":{"character":4,"line":14}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'isRunning' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":13,"line":16},"start":{"character":4,"line":16}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'lcd' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":17,"line":18},"start":{"character":14,"line":18}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'obstacleTop' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":16,"line":20},"start":{"character":5,"line":20}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'obstacleBottom' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":21,"line":31},"start":{"character":7,"line":31}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'sprite' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":13,"line":42},"start":{"character":7,"line":42}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'score' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":11,"line":79},"start":{"character":6,"line":79}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'SCORING_INTERVAL' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":32,"line":80},"start":{"character":16,"line":80}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'last_score_time' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":31,"line":81},"start":{"character":16,"line":81}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'MAX_SCORE' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":15,"line":82},"start":{"character":6,"line":82}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'currentGameState' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":29,"line":91},"start":{"character":13,"line":91}},"severity":2,"source":"clang-tidy"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/setup.h","version":1}}Content-Length: 713
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"capture_non_automatic_variable","message":"In included file: 'player' cannot be captured because it does not have automatic storage duration\n\nC:\\Users\\green\\AppData\\Local\\Temp\\arduino-language-server643265327\\sketch/game.h:12:5:\nnote: error occurred here\n\nC:\\Users\\green\\AppData\\Local\\Temp\\arduino-language-server643265327\\sketch/game.h:8:21:\nnote: 'player' declared here","range":{"end":{"character":17,"line":5},"start":{"character":9,"line":5}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/00_main.ino.cpp","version":1}}Content-Length: 785
+
+{"id":1,"jsonrpc":"2.0","result":[{"kind":12,"name":"setup","range":{"end":{"character":12,"line":8},"start":{"character":0,"line":8}},"selectionRange":{"end":{"character":10,"line":8},"start":{"character":5,"line":8}}},{"kind":12,"name":"loop","range":{"end":{"character":11,"line":10},"start":{"character":0,"line":10}},"selectionRange":{"end":{"character":9,"line":10},"start":{"character":5,"line":10}}},{"kind":12,"name":"setup","range":{"end":{"character":1,"line":14},"start":{"character":0,"line":12}},"selectionRange":{"end":{"character":10,"line":12},"start":{"character":5,"line":12}}},{"kind":12,"name":"loop","range":{"end":{"character":1,"line":18},"start":{"character":0,"line":16}},"selectionRange":{"end":{"character":9,"line":16},"start":{"character":5,"line":16}}}]}Content-Length: 36
+
+{"id":2,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 291
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/elements.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":3,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":3,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 287
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/game.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":4,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":4,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 289
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/inputs.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":5,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":5,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 288
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/setup.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":6,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":6,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 289
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/inputs.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":7,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":7,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 473
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/game.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[{"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"severity":1,"code":"fatal_too_many_errors","source":"clang","message":"Too many errors emitted, stopping now"}]}},"id":8,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":8,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 291
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/elements.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":9,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":9,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 289
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/setup.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":10,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":10,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 297
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/00_main.ino.cpp"},"range":{"start":{"line":2,"character":0},"end":{"line":2,"character":0}},"context":{"diagnostics":[]}},"id":11,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":11,"jsonrpc":"2.0","result":[]}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"2/29","percentage":6.8965517241379306}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"2/29","percentage":6.8965517241379306}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"3/29","percentage":10.344827586206897}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"3/29","percentage":10.344827586206897}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"4/29","percentage":13.793103448275861}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"4/29","percentage":13.793103448275861}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"5/29","percentage":17.241379310344829}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"5/29","percentage":17.241379310344829}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"6/29","percentage":20.689655172413794}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"6/29","percentage":20.689655172413794}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"7/29","percentage":24.137931034482758}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"7/29","percentage":24.137931034482758}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"8/29","percentage":27.586206896551722}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"8/29","percentage":27.586206896551722}}}Content-Length: 158
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"9/29","percentage":31.03448275862069}}}Content-Length: 158
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"9/29","percentage":31.03448275862069}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"10/29","percentage":34.482758620689658}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"10/29","percentage":34.482758620689658}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"11/29","percentage":37.931034482758619}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"11/29","percentage":37.931034482758619}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"12/29","percentage":41.379310344827587}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"12/29","percentage":41.379310344827587}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"13/29","percentage":44.827586206896555}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"13/29","percentage":44.827586206896555}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"14/29","percentage":48.275862068965516}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"14/29","percentage":48.275862068965516}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"15/29","percentage":51.724137931034484}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"15/29","percentage":51.724137931034484}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"16/29","percentage":55.172413793103445}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"16/29","percentage":55.172413793103445}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"17/29","percentage":58.620689655172413}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"17/29","percentage":58.620689655172413}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"18/29","percentage":62.068965517241381}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"18/29","percentage":62.068965517241381}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"19/29","percentage":65.517241379310349}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"19/29","percentage":65.517241379310349}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"20/29","percentage":68.965517241379317}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"20/29","percentage":68.965517241379317}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"21/29","percentage":72.41379310344827}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"21/29","percentage":72.41379310344827}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"22/29","percentage":75.862068965517238}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"23/29","percentage":79.310344827586206}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"24/29","percentage":82.758620689655174}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"25/29","percentage":86.206896551724142}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"26/29","percentage":89.65517241379311}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"27/29","percentage":93.103448275862064}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"28/29","percentage":96.551724137931032}}}Content-Length: 107
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"end"}}}
+>>>
+Content-Length: 238
+
+{"method":"textDocument/documentHighlight","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/00_main.ino.cpp"},"position":{"line":2,"character":16}},"id":12,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":12,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 226
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/00_main.ino.cpp"},"position":{"line":2,"character":16}},"id":13,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":13,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 299
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/00_main.ino.cpp"},"range":{"start":{"line":2,"character":16},"end":{"line":2,"character":16}},"context":{"diagnostics":[]}},"id":14,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":14,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 76
+
+{"method":"$/setTraceNotification","params":{"value":"off"},"jsonrpc":"2.0"}Content-Length: 231
+
+{"method":"textDocument/documentHighlight","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/setup.h"},"position":{"line":10,"character":12}},"id":15,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":15,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 293
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/setup.h"},"range":{"start":{"line":10,"character":12},"end":{"line":10,"character":12}},"context":{"diagnostics":[]}},"id":16,"jsonrpc":"2.0"}
+<<<
+Content-Length: 37
+
+{"id":16,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 219
+
+{"method":"textDocument/hover","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server643265327/sketch/setup.h"},"position":{"line":10,"character":12}},"id":17,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":17,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 59
+
+{"method":"shutdown","params":null,"id":18,"jsonrpc":"2.0"}
+<<<
+Content-Length: 39
+
+{"id":18,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 47
+
+{"method":"exit","params":null,"jsonrpc":"2.0"}<<< Read Error: EOF
+
+
+
+
+
+
+
+Started logging.
+
+>>>
+Content-Length: 2163
+
+{"method":"initialize","params":{"processId":11620,"rootPath":"C:\\Users\\green\\AppData\\Local\\Temp\\arduino-language-server463971199\\sketch","rootUri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch","clientInfo":{"name":"vscode","version":"1.50.0"},"trace":"off","initializationOptions":{},"capabilities":{"workspace":{"workspaceEdit":{"documentChanges":true,"resourceOperations":["create","rename","delete"]},"applyEdit":true,"symbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"executeCommand":{"dynamicRegistration":true},"didChangeWatchedFiles":{"dynamicRegistration":true},"workspaceFolders":true,"configuration":true},"textDocument":{"declaration":{"linkSupport":true},"definition":{"linkSupport":true},"implementation":{"linkSupport":true,"dynamicRegistration":true},"typeDefinition":{"linkSupport":true},"synchronization":{"willSave":true,"didSave":true,"willSaveWaitUntil":true},"documentSymbol":{"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]},"hierarchicalDocumentSymbolSupport":true},"formatting":{"dynamicRegistration":true},"rangeFormatting":{"dynamicRegistration":true},"rename":{"dynamicRegistration":true,"prepareSupport":true},"codeAction":{"dynamicRegistration":true,"isPreferredSupport":true,"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["","quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}}},"completion":{"completionItem":{"documentationFormat":["markdown","plaintext"],"snippetSupport":true},"completionItemKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]},"contextSupport":true},"signatureHelp":{"signatureInformation":{"parameterInformation":{"labelOffsetSupport":true}}},"documentLink":{"dynamicRegistration":true,"tooltipSupport":true},"hover":{"contentFormat":["markdown","plaintext"]},"foldingRange":{"dynamicRegistration":true,"rangeLimit":5000,"lineFoldingOnly":true},"colorProvider":{"dynamicRegistration":true}},"window":{"workDoneProgress":true}}},"id":0,"jsonrpc":"2.0"}
+<<<
+Content-Length: 1671
+
+{"id":0,"jsonrpc":"2.0","result":{"capabilities":{"astProvider":true,"callHierarchyProvider":true,"codeActionProvider":{"codeActionKinds":["quickfix","refactor","info"]},"compilationDatabase":{"automaticReload":true},"completionProvider":{"allCommitCharacters":[" ","\t","(",")","[","]","{","}","<",">",":",";",",","+","-","/","*","%","^","&","#","?",".","=","\"","'","|"],"resolveProvider":false,"triggerCharacters":[".","<",">",":","\"","/"]},"declarationProvider":true,"definitionProvider":true,"documentFormattingProvider":true,"documentHighlightProvider":true,"documentLinkProvider":{"resolveProvider":false},"documentOnTypeFormattingProvider":{"firstTriggerCharacter":"\n","moreTriggerCharacter":[]},"documentRangeFormattingProvider":true,"documentSymbolProvider":true,"executeCommandProvider":{"commands":["clangd.applyFix","clangd.applyTweak"]},"hoverProvider":true,"implementationProvider":true,"memoryUsageProvider":true,"referencesProvider":true,"renameProvider":{"prepareProvider":true},"selectionRangeProvider":true,"semanticTokensProvider":{"full":{"delta":true},"legend":{"tokenModifiers":[],"tokenTypes":["variable","variable","parameter","function","method","function","property","variable","class","enum","enumMember","type","dependent","dependent","namespace","typeParameter","concept","type","macro","comment"]},"range":false},"signatureHelpProvider":{"triggerCharacters":["(",","]},"textDocumentSync":{"change":2,"openClose":true,"save":true},"typeHierarchyProvider":true,"workspaceSymbolProvider":true},"serverInfo":{"name":"clangd","version":"clangd version 12.0.0 (https://github.com/llvm/llvm-project e841bd5f335864b8c4d81cbf4df08460ef39f2ae)"}}}
+>>>
+Content-Length: 52
+
+{"method":"initialized","params":{},"jsonrpc":"2.0"}Content-Length: 1929
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/setup.h","languageId":"cpp","version":1,"text":"#pragma once\r\n#include \u003cSoftwareSerial.h\u003e\r\n#include \u003cLiquidCrystal.h\u003e\r\n#define byte uint8_t\r\n\r\n// TIMING\r\n\r\nunsigned long RENDER_INTERVAL = 16.6;\r\nunsigned long LOGIC_INTERVAL = 2;\r\n\r\nunsigned long last_render_time = 0;\r\nunsigned long last_logic_time = 0;\r\n\r\n// PINS\r\nint BTN_PIN_ONE = 1;\r\n\r\nint isRunning = 0;\r\n\r\nLiquidCrystal lcd(8, 9, 4, 5, 6, 7);\r\n\r\nbyte obstacleTop[8] = {\r\n    0b11111,\r\n    0b01111,\r\n    0b00110,\r\n    0b00110,\r\n    0b00111,\r\n    0b01111,\r\n    0b11110,\r\n    0b00000\r\n  };\r\n  \r\n  byte obstacleBottom[8] = {\r\n    0b00000,\r\n    0b11110,\r\n    0b01111,\r\n    0b00111,\r\n    0b00110,\r\n    0b00110,\r\n    0b01111,\r\n    0b11111\r\n  };\r\n\r\n  byte sprite[24] = {\r\n    // TAIL\r\n    0b00000,\r\n    0b00100,\r\n    0b00110,\r\n    0b00111,\r\n    0b00011,\r\n    0b00001,\r\n    0b00000,\r\n    0b00000,\r\n    // RUN ONE\r\n    0b11111,\r\n    0b11011,\r\n    0b11111,\r\n    0b11100,\r\n    0b11110,\r\n    0b11100,\r\n    0b10000,\r\n    0b10000,\r\n    // RUN TWO\r\n    0b11111,\r\n    0b11011,\r\n    0b11111,\r\n    0b11100,\r\n    0b11110,\r\n    0b11100,\r\n    0b00100,\r\n    0b00100\r\n  };\r\n\r\n  const int tailIndex = 0;\r\n  const int runOneIndex = 1;\r\n  const int runTwoIndex = 2;\r\n  const int obstacleTopIndex = 3;\r\n  const int obstacleBottomIndex = 4;\r\n\r\n  // 999999999\r\n  int score = 0;\r\n  unsigned long SCORING_INTERVAL = 1000;\r\n  unsigned long last_score_time = 0;\r\n  int MAX_SCORE = 999999999;\r\n  \r\n  enum class Game_State\r\n  {\r\n      stopped,\r\n      running,\r\n      over\r\n  };\r\n  \r\n  Game_State currentGameState = Game_State::stopped;\r\n"}},"jsonrpc":"2.0"}Content-Length: 197
+
+{"method":"textDocument/documentSymbol","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/00_main.ino.cpp"}},"id":1,"jsonrpc":"2.0"}
+<<<
+Content-Length: 101
+
+{"error":{"code":-32602,"message":"trying to get AST for non-added document"},"id":1,"jsonrpc":"2.0"}
+>>>
+Content-Length: 2922
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/inputs.h","languageId":"cpp","version":1,"text":"#pragma once\r\n\r\ntypedef void (*func_type)(void);\r\n\r\nnamespace inputs {\r\n  struct Button {\r\n        int pin = 0;\r\n        // pressed is used because I want the fps of the render to not be insanely fast, but locked to a set number\r\n        // that is because if it was as fast as the CPU goes, first of all it would render faster than we can see, unless I use delays\r\n        // and secondly, it could also be open to random slow downs or break everything else due to those delays.\r\n        // As such, we have two logic timelines, one that happens at 60FPS(FOR NOW) for the render, and another, which happens almost at CPU speed\r\n        // for the input.\r\n        // Once input is sent however, say u pressed the button, if you released it before the render loop occured, the player would have never jumped\r\n        // so, once you press, I save it as a boolean, and I don't clear it until used in the render loop.\r\n        bool pressed = false;\r\n        bool held = false;\r\n        bool released = false;\r\n        //func_type functions[256];\r\n        //void (*func)(void);\r\n        func_type pressFunc;\r\n        func_type holdFunc;\r\n        func_type releaseFunc;\r\n        \r\n        Button(int startPin, func_type startPressFunc, func_type startHoldFund, func_type startReleaseFunc) {\r\n            pin = startPin;\r\n            pressFunc = startPressFunc;\r\n            holdFunc = startHoldFund;\r\n            releaseFunc = startReleaseFunc;\r\n            //memcpy(functions, startFunctions, sizeof(startFunctions));\r\n        }\r\n\r\n        void Check() {\r\n          if(digitalRead(pin) == HIGH) {\r\n            if(held == false) {\r\n              if(pressed == false) {\r\n                pressed = true;\r\n              }\r\n              held = true;\r\n            }\r\n          } else {\r\n            if(held == true) {\r\n              held = false;\r\n              released=  true;\r\n            }\r\n          }\r\n        }\r\n\r\n        void OnRender() {\r\n          Press();\r\n          Hold();\r\n          Release();\r\n        }\r\n\r\n        void Press() {\r\n          if(pressed == true) {\r\n            Serial.println(\"PRESS\");\r\n            pressed = false;\r\n            pressFunc();\r\n            //for(int i = 0; i \u003c 256; i++) {\r\n            //  functions[i]();\r\n            //}\r\n          }\r\n        }\r\n\r\n        void Hold() {\r\n          if(held == true) {\r\n            holdFunc();\r\n          }\r\n        }\r\n\r\n        void Release() {\r\n          if(released == true) {\r\n            releaseFunc();\r\n            released = false;\r\n          }\r\n        }\r\n  };\r\n}\r\n"}},"jsonrpc":"2.0"}
+<<<
+Content-Length: 111
+
+{"id":0,"jsonrpc":"2.0","method":"window/workDoneProgress/create","params":{"token":"backgroundIndexProgress"}}
+>>>
+Content-Length: 38
+
+{"id":0,"result":null,"jsonrpc":"2.0"}
+<<<
+Content-Length: 143
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"begin","percentage":0,"title":"indexing"}}}Content-Length: 141
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/1","percentage":0}}}
+>>>
+Content-Length: 6633
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/game.h","languageId":"cpp","version":1,"text":"#pragma once\r\n\r\n\r\nnamespace game {\r\n  unsigned long current_time = 0;\r\n\r\n  elements::Player* player = new elements::Player(elements::Player_State::standing);\r\n\r\n                                            // PIN, PRESS, HOLD, RELEASE\r\n  inputs::Button* btnOne = new inputs::Button(BTN_PIN_ONE,\r\n  [\u0026player]() { // PRESS\r\n    player-\u003eJump(); \r\n  }, \r\n  [\u0026player]() { // HOLD\r\n    //Serial.println(\"HOLD\"); \r\n  }, \r\n  [\u0026player, \u0026currentGameState]() { // RELEASE\r\n    player-\u003eFall(); \r\n    if(currentGameState == Game_State::stopped || currentGameState == Game_State::over) {\r\n      currentGameState = Game_State::running;\r\n    }\r\n  }\r\n  );\r\n\r\n  //                                                 Obstacle(int startPosX, int startPosY, int startSize, Player* startPlayer, bool startCanMove, bool startMovesLeft, int startObstacleType){\r\n  elements::Obstacle* bottomObstacleOne = new elements::Obstacle(16,1,1, player,true, true, 0);\r\n  elements::Obstacle* bottomObstacleTwo = new elements::Obstacle(16,1,1, player,true, true, 0);\r\n  elements::Obstacle* bottomObstacleThree = new elements::Obstacle(16,1,1, player,true, true, 0);\r\n  elements::Obstacle* bottomObstacleFour = new elements::Obstacle(16,1,1, player,true, true, 0);\r\n\r\n  elements::Obstacle* topObstacleOne = new elements::Obstacle(16,0,1, player,true, true, 1);\r\n  elements::Obstacle* topObstacleTwo = new elements::Obstacle(16,0,1, player,true, true, 1);\r\n  elements::Obstacle* topObstacleThree = new elements::Obstacle(16,0,1, player,true, true, 1);\r\n  elements::Obstacle* topObstacleFour = new elements::Obstacle(16,0,1, player,true, true, 1);\r\n\r\n  elements::Obstacle* obstacles[] = {\r\n    bottomObstacleOne,\r\n    bottomObstacleTwo,\r\n    bottomObstacleThree,\r\n    bottomObstacleFour,\r\n    topObstacleOne,\r\n    topObstacleTwo,\r\n    topObstacleThree,\r\n    topObstacleFour\r\n  };\r\n  int obstacleIndex = 0;\r\n  unsigned long lastTimeObstacleSpawn = 0;\r\n  unsigned long OBSTACLE_SPAWN_INTERVAL = 600;\r\n  unsigned long NEW_GAME_OBSTACLE_SPAWN_INTERVAL = 1000;\r\n  int OBSTACLE_SPAWN_CHANCE = 50; // from 0 to 100\r\n  int chanceModifier = 0;\r\n  int MAX_CHANCE_MODIFIER = 500;\r\n  \r\n  bool gameStarted = false;\r\n  // PROTOTYPES\r\n  void RenderLogic();\r\n  \r\n  void SetupGame() {\r\n    Serial.begin(9600);\r\n    lcd.begin(16, 2);\r\n    \r\n    // TODO Try to skip index 0 and start from 1, might be faster, no idea why\r\n    lcd.createChar(tailIndex, \u0026sprite[0]);\r\n    lcd.createChar(runOneIndex, \u0026sprite[8]);\r\n    lcd.createChar(runTwoIndex, \u0026sprite[16]);\r\n    lcd.createChar(obstacleTopIndex, obstacleTop);\r\n    lcd.createChar(obstacleBottomIndex, obstacleBottom);\r\n  }\r\n\r\n  void StartGame() {\r\n    Serial.println(\"StartGame\");\r\n  }\r\n\r\n  void HandleInput() {\r\n    \r\n  }\r\n  \r\n//Score: 999999999    16 chars\r\n//Try again?          10 chars\r\n  void LoopGame() {\r\n    current_time = millis();\r\n\r\n    if(current_time - last_logic_time \u003e LOGIC_INTERVAL) {// ALL INPUT HERE\r\n      last_logic_time = current_time;\r\n      (*btnOne).Check();\r\n    }\r\n    if(current_time - last_render_time \u003e RENDER_INTERVAL) {// ALL RENDER\r\n      last_render_time = current_time;\r\n      RenderLogic();\r\n    }\r\n    \r\n  }\r\n\r\n  void RenderLogic() {\r\n    // HANDLE BUTTON CHANGE STATES\r\n    (*btnOne).OnRender();\r\n    switch(currentGameState) {\r\n      case Game_State::stopped :\r\n        lcd.clear();\r\n        lcd.setCursor(0, 1);\r\n        lcd.write(\"RUNNING BEAVER\");\r\n        lcd.setCursor(1, 5);\r\n        lcd.write(\"start!\");\r\n      break;\r\n      case Game_State::running :\r\n        lcd.clear();\r\n        // PUT ALL RENDER CALLS HERE        \r\n        (*player).Render();\r\n    \r\n        // obstacle spawn logic\r\n        if(gameStarted == false) {\r\n          if(current_time - lastTimeObstacleSpawn \u003e NEW_GAME_OBSTACLE_SPAWN_INTERVAL) {\r\n            (*obstacles[obstacleIndex]).Reset();\r\n            obstacleIndex = obstacleIndex \u003e= 16 ? 0 : obstacleIndex + 1;\r\n            lastTimeObstacleSpawn = current_time;\r\n            gameStarted = true;\r\n            (*player).rendering = true;\r\n          }\r\n        }\r\n        if(gameStarted == true \u0026\u0026 current_time - lastTimeObstacleSpawn \u003e OBSTACLE_SPAWN_INTERVAL) {\r\n          if(random(0, 100) \u003c OBSTACLE_SPAWN_CHANCE + chanceModifier) {\r\n            (*obstacles[obstacleIndex]).Reset();\r\n            obstacleIndex = obstacleIndex \u003e= 16 ? 0 : obstacleIndex + 1;\r\n            chanceModifier = 0;\r\n          } else {\r\n            chanceModifier = chanceModifier \u003c MAX_CHANCE_MODIFIER ? chanceModifier + 1 : MAX_CHANCE_MODIFIER;\r\n          }\r\n          lastTimeObstacleSpawn = current_time;\r\n        }\r\n        \r\n        // obstacle render logic\r\n        (*bottomObstacleOne).Render();\r\n        (*bottomObstacleTwo).Render();\r\n        (*bottomObstacleThree).Render();\r\n        (*bottomObstacleFour).Render();\r\n\r\n        (*topObstacleOne).Render();\r\n        (*topObstacleTwo).Render();\r\n        (*topObstacleThree).Render();\r\n        (*topObstacleFour).Render();\r\n\r\n        if(current_time - last_score_time \u003e SCORING_INTERVAL) {\r\n          last_score_time = current_time;\r\n          score += 1;\r\n          if(score \u003e MAX_SCORE) {\r\n            score = MAX_SCORE;\r\n          }\r\n        }\r\n      break;\r\n      case Game_State::over :\r\n        gameStarted = false;\r\n        score = 0;\r\n        last_score_time = 0;\r\n        lastTimeObstacleSpawn = 0;\r\n        chanceModifier = 0;\r\n        obstacleIndex = 0;\r\n        \r\n        (*bottomObstacleOne).rendering = false;\r\n        (*bottomObstacleTwo).rendering = false;\r\n        (*bottomObstacleThree).rendering = false;\r\n        (*bottomObstacleFour).rendering = false;\r\n\r\n        (*topObstacleOne).rendering = false;\r\n        (*topObstacleTwo).rendering = false;\r\n        (*topObstacleThree).rendering = false;\r\n        (*topObstacleFour).rendering = false;\r\n        \r\n        lcd.clear();\r\n        lcd.setCursor(0,0);\r\n        lcd.write(\"Score: \" + score);\r\n        lcd.setCursor(1,3);\r\n        lcd.write(\"Try again?\");\r\n      break;\r\n    }\r\n  }\r\n}\r\n"}},"jsonrpc":"2.0"}Content-Length: 4035
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/elements.h","languageId":"cpp","version":1,"text":"#pragma once\r\n\r\n\r\nnamespace elements {\r\n\r\n  struct Element {\r\n    int posX, posY;\r\n    int size;\r\n    bool rendering = false;\r\n\r\n    Element(int startPosX, int startPosY, int startSize) {\r\n        posX = startPosX;\r\n        posY = startPosY;\r\n        size = startSize;\r\n    }\r\n\r\n    Element() {\r\n        Element(0,0,1);\r\n    }\r\n\r\n    void Move(int x, int y) {\r\n        posX = x;\r\n        posY = y;\r\n    }\r\n\r\n    void Render();\r\n  };\r\n  \r\n  enum class Player_State\r\n  {\r\n      standing,\r\n      running,\r\n      dead\r\n  };\r\n\r\n  struct Player : Element {\r\n      Player_State playerState;\r\n      bool runAnim = false; // On false, it uses first sprite, on true second\r\n      \r\n      Player(Player_State startPlayerState) : Element(0, 1, 2){\r\n          playerState = startPlayerState;\r\n          \r\n      }\r\n  \r\n      void Render() {\r\n        if(rendering == true) {\r\n          lcd.setCursor(posX, posY);\r\n          lcd.write((byte)tailIndex);\r\n          lcd.setCursor(posX + 1, posY);\r\n          lcd.write((byte)(runAnim == true ? runOneIndex : runTwoIndex));\r\n          runAnim = !runAnim;\r\n        }\r\n      }\r\n  \r\n      void Jump() {\r\n        Serial.println(\"JUMP\");\r\n        posY = 0;\r\n      }\r\n\r\n      void Fall() {\r\n        posY = 1;\r\n      }\r\n  \r\n      void Die() {\r\n        Serial.println(\"DIE\");\r\n      }\r\n  };\r\n\r\n  struct Obstacle : Element {\r\n        //byte sprite[8];\r\n        bool canMove = false;\r\n        bool movesLeft = true; // Don't support moving right yet, due to collision detection\r\n        Player* currentPlayer;\r\n        int obstacleType = 0; // 0 == bottom ; 1 == top\r\n\r\n        Obstacle(int startPosX, int startPosY, int startSize, Player* startPlayer) : Element(startPosX, startPosY, startSize) {\r\n          //int spriteLength = sizeof(startSprite) / sizeof(startSprite[0]);\r\n          //for(int i = 0; i \u003c spriteLength; i++) {\r\n          //  sprite[i] = startSprite[i];\r\n          //}\r\n          currentPlayer = startPlayer;\r\n        }\r\n\r\n        Obstacle(int startPosX, int startPosY, int startSize, Player* startPlayer, bool startCanMove, bool startMovesLeft, int startObstacleType){\r\n          Obstacle(startPosX, startPosY, startSize, startPlayer);\r\n          canMove = startCanMove;\r\n          movesLeft = startMovesLeft;\r\n          obstacleType = startObstacleType;\r\n        }\r\n\r\n        void Render() {\r\n          if(rendering == true ) {\r\n            lcd.setCursor(posX, posY);\r\n            lcd.write((byte) (obstacleType == 0 ? obstacleBottomIndex : obstacleTopIndex));\r\n          }\r\n        }\r\n\r\n        void Reset() {\r\n          posX = movesLeft == true ? 16 : 0;\r\n          rendering = true;\r\n        }\r\n\r\n        void Move() {\r\n          if(currentGameState == Game_State::running \u0026\u0026 rendering == true) {\r\n            if(canMove == true) {\r\n              bool hitPlayer = false;\r\n              int newX = posX;\r\n              if(movesLeft == true) {\r\n                newX -= 1;\r\n                if(newX \u003c 0) {\r\n                  rendering = false;\r\n                }\r\n              } else {\r\n                newX += 1;\r\n                if(newX \u003e 16) {\r\n                  rendering = false;\r\n                }\r\n              } // end check move right\r\n              if(newX \u003c= ((*currentPlayer).posX + (*currentPlayer).size)) {\r\n                hitPlayer = true;\r\n                currentGameState = Game_State::over;\r\n              } else {\r\n                posX = newX;\r\n              }\r\n            } // end check can move\r\n          } // end check game is running\r\n        }\r\n    };\r\n}\r\n"}},"jsonrpc":"2.0"}Content-Length: 751
+
+{"method":"textDocument/didOpen","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/00_main.ino.cpp","languageId":"cpp","version":1,"text":"#include \u003cArduino.h\u003e\n#line 1 \"D:\\\\Projects\\\\arduino_beaver\\\\00_main\\\\00_main.ino\"\n#include \"setup.h\"\n#include \"elements.h\"\n#include \"inputs.h\"\n#include \"game.h\"\n\n#line 6 \"D:\\\\Projects\\\\arduino_beaver\\\\00_main\\\\00_main.ino\"\nvoid setup();\n#line 10 \"D:\\\\Projects\\\\arduino_beaver\\\\00_main\\\\00_main.ino\"\nvoid loop();\n#line 6 \"D:\\\\Projects\\\\arduino_beaver\\\\00_main\\\\00_main.ino\"\nvoid setup() {\n  game::SetupGame();\n}\n\nvoid loop() {\n  game::LoopGame();\n}\n\n"}},"jsonrpc":"2.0"}Content-Length: 292
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/setup.h"},"range":{"start":{"line":10,"character":12},"end":{"line":10,"character":12}},"context":{"diagnostics":[]}},"id":2,"jsonrpc":"2.0"}
+<<<
+Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/29","percentage":0}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/29","percentage":3.4482758620689653}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/29","percentage":3.4482758620689653}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/29","percentage":3.4482758620689653}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/29","percentage":3.4482758620689653}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"1/29","percentage":3.4482758620689653}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"2/29","percentage":6.8965517241379306}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"2/29","percentage":6.8965517241379306}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"3/29","percentage":10.344827586206897}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"3/29","percentage":10.344827586206897}}}Content-Length: 765
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'digitalRead'","range":{"end":{"character":24,"line":32},"start":{"character":13,"line":32}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'HIGH'","range":{"end":{"character":37,"line":32},"start":{"character":33,"line":32}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Serial'","range":{"end":{"character":18,"line":55},"start":{"character":12,"line":55}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/inputs.h","version":1}}Content-Length: 3970
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":6},"start":{"character":2,"line":6}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":41,"line":6},"start":{"character":33,"line":6}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'inputs'","range":{"end":{"character":8,"line":9},"start":{"character":2,"line":9}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'inputs'","range":{"end":{"character":37,"line":9},"start":{"character":31,"line":9}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":25},"start":{"character":2,"line":25}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":54,"line":25},"start":{"character":46,"line":25}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":26},"start":{"character":2,"line":26}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":54,"line":26},"start":{"character":46,"line":26}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":27},"start":{"character":2,"line":27}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":56,"line":27},"start":{"character":48,"line":27}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":28},"start":{"character":2,"line":28}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":55,"line":28},"start":{"character":47,"line":28}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":30},"start":{"character":2,"line":30}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":51,"line":30},"start":{"character":43,"line":30}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":31},"start":{"character":2,"line":31}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":51,"line":31},"start":{"character":43,"line":31}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":32},"start":{"character":2,"line":32}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":53,"line":32},"start":{"character":45,"line":32}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'elements'","range":{"end":{"character":10,"line":33},"start":{"character":2,"line":33}},"severity":1,"source":"clang"},{"code":"fatal_too_many_errors","message":"Too many errors emitted, stopping now","range":{"end":{"character":0,"line":0},"start":{"character":0,"line":0}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/game.h","version":1}}Content-Length: 3815
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":13,"line":46},"start":{"character":10,"line":46}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":13,"line":47},"start":{"character":10,"line":47}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'byte'","range":{"end":{"character":25,"line":47},"start":{"character":21,"line":47}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":13,"line":48},"start":{"character":10,"line":48}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":13,"line":49},"start":{"character":10,"line":49}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'byte'","range":{"end":{"character":25,"line":49},"start":{"character":21,"line":49}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'runOneIndex'","range":{"end":{"character":56,"line":49},"start":{"character":45,"line":49}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'runTwoIndex'","range":{"end":{"character":70,"line":49},"start":{"character":59,"line":49}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Serial'","range":{"end":{"character":14,"line":55},"start":{"character":8,"line":55}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Serial'","range":{"end":{"character":14,"line":64},"start":{"character":8,"line":64}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":15,"line":92},"start":{"character":12,"line":92}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'lcd'","range":{"end":{"character":15,"line":93},"start":{"character":12,"line":93}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'byte'","range":{"end":{"character":27,"line":93},"start":{"character":23,"line":93}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'obstacleBottomIndex'","range":{"end":{"character":69,"line":93},"start":{"character":50,"line":93}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'obstacleTopIndex'","range":{"end":{"character":88,"line":93},"start":{"character":72,"line":93}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'currentGameState'","range":{"end":{"character":29,"line":103},"start":{"character":13,"line":103}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Game_State'","range":{"end":{"character":43,"line":103},"start":{"character":33,"line":103}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'currentGameState'","range":{"end":{"character":32,"line":120},"start":{"character":16,"line":120}},"severity":1,"source":"clang"},{"code":"undeclared_var_use","message":"Use of undeclared identifier 'Game_State'","range":{"end":{"character":45,"line":120},"start":{"character":35,"line":120}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/elements.h","version":1}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"4/29","percentage":13.793103448275861}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"4/29","percentage":13.793103448275861}}}Content-Length: 4351
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"misc-definitions-in-headers","message":"Variable 'RENDER_INTERVAL' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":29,"line":7},"start":{"character":14,"line":7}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'LOGIC_INTERVAL' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":28,"line":8},"start":{"character":14,"line":8}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'last_render_time' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":30,"line":10},"start":{"character":14,"line":10}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'last_logic_time' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":29,"line":11},"start":{"character":14,"line":11}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'BTN_PIN_ONE' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":15,"line":14},"start":{"character":4,"line":14}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'isRunning' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":13,"line":16},"start":{"character":4,"line":16}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'lcd' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":17,"line":18},"start":{"character":14,"line":18}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'obstacleTop' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":16,"line":20},"start":{"character":5,"line":20}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'obstacleBottom' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":21,"line":31},"start":{"character":7,"line":31}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'sprite' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":13,"line":42},"start":{"character":7,"line":42}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'score' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":11,"line":79},"start":{"character":6,"line":79}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'SCORING_INTERVAL' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":32,"line":80},"start":{"character":16,"line":80}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'last_score_time' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":31,"line":81},"start":{"character":16,"line":81}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'MAX_SCORE' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":15,"line":82},"start":{"character":6,"line":82}},"severity":2,"source":"clang-tidy"},{"code":"misc-definitions-in-headers","message":"Variable 'currentGameState' defined in a header file; variable definitions in header files can lead to ODR violations","range":{"end":{"character":29,"line":91},"start":{"character":13,"line":91}},"severity":2,"source":"clang-tidy"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/setup.h","version":1}}Content-Length: 36
+
+{"id":2,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 289
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/inputs.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":3,"jsonrpc":"2.0"}
+<<<
+Content-Length: 713
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":"capture_non_automatic_variable","message":"In included file: 'player' cannot be captured because it does not have automatic storage duration\n\nC:\\Users\\green\\AppData\\Local\\Temp\\arduino-language-server463971199\\sketch/game.h:12:5:\nnote: error occurred here\n\nC:\\Users\\green\\AppData\\Local\\Temp\\arduino-language-server463971199\\sketch/game.h:8:21:\nnote: 'player' declared here","range":{"end":{"character":17,"line":5},"start":{"character":9,"line":5}},"severity":1,"source":"clang"}],"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/00_main.ino.cpp","version":1}}Content-Length: 36
+
+{"id":3,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 287
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/game.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":4,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":4,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 291
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/elements.h"},"range":{"start":{"line":0,"character":0},"end":{"line":0,"character":0}},"context":{"diagnostics":[]}},"id":5,"jsonrpc":"2.0"}
+<<<
+Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"5/29","percentage":17.241379310344829}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"5/29","percentage":17.241379310344829}}}Content-Length: 36
+
+{"id":5,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 298
+
+{"method":"textDocument/codeAction","params":{"textDocument":{"uri":"file:///C:/Users/green/AppData/Local/Temp/arduino-language-server463971199/sketch/00_main.ino.cpp"},"range":{"start":{"line":2,"character":16},"end":{"line":2,"character":16}},"context":{"diagnostics":[]}},"id":6,"jsonrpc":"2.0"}
+<<<
+Content-Length: 36
+
+{"id":6,"jsonrpc":"2.0","result":[]}
+>>>
+Content-Length: 58
+
+{"method":"shutdown","params":null,"id":7,"jsonrpc":"2.0"}
+<<<
+Content-Length: 38
+
+{"id":7,"jsonrpc":"2.0","result":null}
+>>>
+Content-Length: 62
+
+{"method":"$/cancelRequest","params":{"id":1},"jsonrpc":"2.0"}Content-Length: 62
+
+{"method":"$/cancelRequest","params":{"id":2},"jsonrpc":"2.0"}Content-Length: 62
+
+{"method":"$/cancelRequest","params":{"id":3},"jsonrpc":"2.0"}Content-Length: 62
+
+{"method":"$/cancelRequest","params":{"id":4},"jsonrpc":"2.0"}Content-Length: 62
+
+{"method":"$/cancelRequest","params":{"id":5},"jsonrpc":"2.0"}Content-Length: 47
+
+{"method":"exit","params":null,"jsonrpc":"2.0"}
+<<<
+Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"6/29","percentage":20.689655172413794}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"7/29","percentage":24.137931034482758}}}Content-Length: 159
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"8/29","percentage":27.586206896551722}}}Content-Length: 158
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"9/29","percentage":31.03448275862069}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"10/29","percentage":34.482758620689658}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"11/29","percentage":37.931034482758619}}}Content-Length: 160
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"12/29","percentage":41.379310344827587}}}Content-Length: 142
+
+{"jsonrpc":"2.0","method":"$/progress","params":{"token":"backgroundIndexProgress","value":{"kind":"report","message":"0/16","percentage":0}}}<<< Read Error: EOF

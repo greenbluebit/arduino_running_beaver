@@ -30,7 +30,7 @@ namespace inputs {
         }
 
         void Check() {
-          if(digitalRead(pin) == HIGH) {
+          if(analogRead(pin) >= 59 && analogRead(pin) < 200) {
             if(held == false) {
               if(pressed == false) {
                 pressed = true;
@@ -53,7 +53,6 @@ namespace inputs {
 
         void Press() {
           if(pressed == true) {
-            Serial.println("PRESS");
             pressed = false;
             pressFunc();
             //for(int i = 0; i < 256; i++) {

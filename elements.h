@@ -12,17 +12,14 @@ namespace elements {
         posX = startPosX;
         posY = startPosY;
         size = startSize;
+        
     }
 
     Element() {
         Element(0,0,1);
     }
 
-    void Move(int x, int y) {
-        posX = x;
-        posY = y;
-    }
-
+    void Move(int x, int y);
     void Render();
   };
   
@@ -37,7 +34,7 @@ namespace elements {
       Player_State playerState;
       bool runAnim = false; // On false, it uses first sprite, on true second
       
-      Player(Player_State startPlayerState) : Element(0, 1, 2){
+      Player(Player_State startPlayerState) : Element(0, 0, 1){
           playerState = startPlayerState;
           
       }
@@ -53,7 +50,6 @@ namespace elements {
       }
   
       void Jump() {
-        Serial.println("JUMP");
         posY = 0;
       }
 
@@ -62,7 +58,6 @@ namespace elements {
       }
   
       void Die() {
-        Serial.println("DIE");
       }
   };
 
@@ -73,12 +68,13 @@ namespace elements {
         Player* currentPlayer;
         int obstacleType = 0; // 0 == bottom ; 1 == top
 
+        // For some reason, this secondary Constructor is not called
         Obstacle(int startPosX, int startPosY, int startSize, Player* startPlayer) : Element(startPosX, startPosY, startSize) {
           //int spriteLength = sizeof(startSprite) / sizeof(startSprite[0]);
           //for(int i = 0; i < spriteLength; i++) {
           //  sprite[i] = startSprite[i];
           //}
-          currentPlayer = startPlayer;
+          
         }
 
         Obstacle(int startPosX, int startPosY, int startSize, Player* startPlayer, bool startCanMove, bool startMovesLeft, int startObstacleType){
@@ -86,6 +82,10 @@ namespace elements {
           canMove = startCanMove;
           movesLeft = startMovesLeft;
           obstacleType = startObstacleType;
+          posY = startPosY;
+          posX = startPosX;
+          size = startSize;
+          currentPlayer = startPlayer;
         }
 
         void Render() {
@@ -93,10 +93,11 @@ namespace elements {
             lcd.setCursor(posX, posY);
             lcd.write((byte) (obstacleType == 0 ? obstacleBottomIndex : obstacleTopIndex));
           }
+          
         }
 
         void Reset() {
-          posX = movesLeft == true ? 16 : 0;
+          posX = 15;
           rendering = true;
         }
 
@@ -116,7 +117,7 @@ namespace elements {
                   rendering = false;
                 }
               } // end check move right
-              if(newX <= ((*currentPlayer).posX + (*currentPlayer).size)) {
+              if((newX == (currentPlayer->posX + currentPlayer->size) || posX == (currentPlayer->posX + currentPlayer->size)) && posY == currentPlayer->posY) {
                 hitPlayer = true;
                 currentGameState = Game_State::over;
               } else {
